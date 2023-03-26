@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
             double[] arr = new double[14] { 2.8, 1.7, 3.4, 7.3, 6.3, 4.3, 5.1, 9.0, 8.4, 10.2, 12.5, 11.3, 13.2, 15.1 };
             for (int i = 0; i < 6; i++)
