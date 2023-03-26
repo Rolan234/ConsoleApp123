@@ -10,27 +10,46 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            double[] arr = new double[12];
-            Console.WriteLine("Введите 12 элементов массива:");
-            for (int i = 0; i < 12; i++)
+            double[] arr = new double[14] { 2.8, 1.7, 3.4, 7.3, 6.3, 4.3, 5.1, 9.0, 8.4, 10.2, 12.5, 11.3, 13.2, 15.1 };
+            for (int i = 0; i < 6; i++)
             {
-                array [i] = double.Parse(Console.ReadLine()); 
+                int minIndex = i;
+                for (int j = i + 1; j < 7; j++)
+                {
+                    if (arr[j] < arr[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+                double temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
             }
-
-            Array.Sort(arr, Comparer<double>.Create((x, y) => y.CompareTo(x)));
-
-            Console.WriteLine("Массив, отсортированный в порядке убывания:");
-            foreach (double element in arr)
+            for (int i = 7; i < 13; i++)
             {
-                Console.Write(element + " ");
+                int maxIndex = i;
+                for (int j = i + 1; j < 14; j++)
+                {
+                    if (arr[j] > arr[maxIndex])
+                    {
+                        maxIndex = j;
+                    }
+                }
+                double temp = arr[i];
+                arr[i] = arr[maxIndex];
+                arr[maxIndex] = temp;
             }
-
-            double max = arr[0];
-            double min = arr[arr.Length - 1];
-
-            Console.WriteLine($"\nМаксимальный элемент: {max}");
-            Console.WriteLine($"Минимальный элемент: {min}");
-            Console.WriteLine($"Сумма максимального и минимального элементов: {max + min}");
+            for (int i = 0; i < 14; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+            double min = arr[0];
+            double max = arr[13];
+            double sum = min + max;
+            Console.WriteLine("Минимальный элемент: " + min);
+            Console.WriteLine("Максимальный элемент: " + max);
+            Console.WriteLine("Сумма максимального и минимального элементов: " + sum);
         }
     }
 }
